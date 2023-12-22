@@ -1,18 +1,11 @@
-import React { useContext, useEffect, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { AuthContext } from "../../providers/AuthProviders";
+import { useContext, useEffect, useState } from "react";
 
 const ItemType = "TASK";
-const { user } = useContext(AuthContext);
+
 // const [article, , refetch] = useArticles();
-const [tasks, setTask] = useState([]);
-const url = `http://localhost:5000/tasks?email=${user?.email}`;
-useEffect(() => {
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => setTask(data));
-}, []);
 
 const Task = ({ task, index, moveTask }) => {
   const [, ref] = useDrag({
@@ -52,8 +45,16 @@ const TaskList = ({ title, tasks, moveTask }) => {
 };
 
 const AllTasks = () => {
+  const { user } = useContext(AuthContext);
+  const [task, setTask] = useState([]);
+  const url = `http://localhost:5000/tasks?email=${user?.email}`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setTask(data));
+  }, []);
   const [tasks, setTasks] = useState([
-    { id: 1, title: "Task 1" },
+    { id: 1, title: "admin" },
     { id: 2, title: "Task 2" },
     { id: 3, title: "Task 3" },
   ]);

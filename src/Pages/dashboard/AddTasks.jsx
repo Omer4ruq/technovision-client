@@ -1,11 +1,13 @@
 import moment from "moment/moment";
-import React from "react";
+import React, { useContext } from "react";
 import Calendar from "react-calendar";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const AddTasks = () => {
+  const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const axiosPublic = useAxiosPublic();
 
@@ -17,6 +19,7 @@ const AddTasks = () => {
       priority: data.priority,
       descriptions: data.descriptions,
       date: data.date,
+      email: data.email,
     };
 
     const articleRes = await axiosPublic.post("/addtasks", taskItem);
@@ -40,6 +43,15 @@ const AddTasks = () => {
             type="text"
             placeholder="title"
             className="input input-bordered w-full mb-4"
+          />
+          <input
+            {...register("email")}
+            id="email"
+            type="email"
+            placeholder="Email"
+            name="email"
+            defaultValue={user.email}
+            className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
           />
           <select
             {...register("priority")}

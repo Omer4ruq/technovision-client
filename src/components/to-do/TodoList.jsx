@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const TodoList = () => {
+  const { user } = useContext(AuthContext);
+  const [tasks, setTask] = useState([]);
+  const url = `http://localhost:5000/my-tasks?email=${user?.email}`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setTask(data));
+    console.log(tasks);
+  }, []);
   return (
     <div>
       <div className="overflow-x-auto">
@@ -8,23 +18,17 @@ const TodoList = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Name</th>
+              <th>To Do List</th>
             </tr>
           </thead>
-          <tbody>
-            {/* row 1 */}
-            <tr>
-              <td>Cy Ganderton</td>
-            </tr>
-            {/* row 2 */}
-            <tr className="hover">
-              <td>Hart Hagerty</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <td>Brice Swyre</td>
-            </tr>
-          </tbody>
+          {tasks.map((task) => (
+            <tbody key={task._id}>
+              {/* row 1 */}
+              <tr>
+                <td className="text-black">{task.title}</td>
+              </tr>
+            </tbody>
+          ))}
         </table>
       </div>
     </div>

@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import TodoList from "../components/to-do/TodoList";
+import OnGoing from "../components/ongoing/OnGoing";
+import Completed from "../components/completed/Completed";
 
 const Dashboard = () => {
   // const isAdmin = true;
@@ -48,7 +51,11 @@ const Dashboard = () => {
             </div>
           </nav>
         </aside>
-        <div>{/* <StatsChart></StatsChart> */}</div>
+        <div className="grid grid-cols-3">
+          <TodoList></TodoList>
+          <OnGoing></OnGoing>
+          <Completed></Completed>
+        </div>
         <div className="flex-1 p-10 ml-16">
           <Outlet></Outlet>
         </div>
