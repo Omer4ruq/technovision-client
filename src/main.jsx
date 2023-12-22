@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <AllTasks></AllTasks>,
       },
       {
-        path: "addtasks",
+        path: "addtask",
         element: <AddTasks></AddTasks>,
       },
     ],
