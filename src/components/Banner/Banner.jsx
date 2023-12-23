@@ -5,14 +5,14 @@ import { NavLink } from "react-router-dom";
 const Banner = () => {
   const sliderVariants = {
     initial: {
-      y: 0,
+      x: 0,
     },
     animate: {
-      y: -400,
+      x: "-150%",
       transition: {
         repeat: Infinity,
         repeatType: "mirror",
-        duration: 10,
+        duration: 20,
       },
     },
   };
@@ -31,11 +31,14 @@ const Banner = () => {
           initial="initial"
           animate="animate"
         >
-          <img
+          {/* <img
             className="opacity-40 "
-            // src="https://i.ibb.co/hd9CjzN/1-UEPAg-Ti-BSrid-GQb-LWN5pa-A.jpg"
+            src="https://i.ibb.co/hd9CjzN/1-UEPAg-Ti-BSrid-GQb-LWN5pa-A.jpg"
             alt=""
-          />
+          /> */}
+          <h1 className="opacity-40 text-slate-50 text-5xl font-extrabold mt-48">
+            SCC Technovision inc
+          </h1>
         </motion.div>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content ">

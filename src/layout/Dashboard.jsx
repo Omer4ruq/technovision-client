@@ -8,6 +8,7 @@ import Completed from "../components/completed/Completed";
 const Dashboard = () => {
   // const isAdmin = true;
   const { user } = useContext(AuthContext);
+  const { photoURL, displayName } = user;
   return (
     <div>
       <div className="grid grid-flow-col-dense">
@@ -19,12 +20,12 @@ const Dashboard = () => {
               </h2>
               <div className="flex items-center p-2 space-x-4">
                 <img
-                  src={user.photoURL}
+                  src={photoURL}
                   alt=""
                   className="w-12 h-12 rounded-fullbg-gray-500"
                 />
                 <div>
-                  <h2 className="text-lg font-semibold">{user.displayName}</h2>
+                  <h2 className="text-lg font-semibold">{displayName}</h2>
                   <span className="flex items-center space-x-1">
                     <a
                       rel="noopener noreferrer"

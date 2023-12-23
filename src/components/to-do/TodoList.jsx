@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 const TodoList = () => {
   const { user } = useContext(AuthContext);
   const [tasks, setTask] = useState([]);
-  const url = `http://localhost:5000/my-tasks?email=${user?.email}`;
+  const url = `https://scc-technovision-inc-server-nu.vercel.app/my-tasks?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

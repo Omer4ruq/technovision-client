@@ -46,18 +46,19 @@ const TaskList = ({ title, tasks, moveTask }) => {
 
 const AllTasks = () => {
   const { user } = useContext(AuthContext);
-  const [task, setTask] = useState([]);
-  const url = `http://localhost:5000/tasks?email=${user?.email}`;
+  const [tasks, setTasks] = useState([]);
+  const url = `https://scc-technovision-inc-server-nu.vercel.app/my-tasks?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setTask(data));
+      .then((data) => setTasks(data));
+    console.log(tasks);
   }, []);
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "admin" },
-    { id: 2, title: "Task 2" },
-    { id: 3, title: "Task 3" },
-  ]);
+  //   const [tasks, setTasks] = useState([
+  //     { id: 1, title: "Task 1" },
+  //     { id: 2, title: "Task 2" },
+  //     { id: 3, title: "Task 3" },
+  //   ]);
 
   const moveTask = (fromIndex, toIndex) => {
     const updatedTasks = [...tasks];
