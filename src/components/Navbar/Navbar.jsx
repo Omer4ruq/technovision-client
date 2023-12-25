@@ -44,18 +44,18 @@ const Navbar = () => {
                 <NavLink>Home</NavLink>
               </li>
               <li>
-                <a>Explore</a>
-                <ul className="p-2 bg-slate-800">
+                <NavLink to="/login">Explore</NavLink>
+                {/* <ul className="p-2 bg-slate-800">
                   <li>
                     <NavLink>Features</NavLink>
                   </li>
                   <li>
                     <a>Pricing</a>
                   </li>
-                </ul>
+                </ul> */}
               </li>
               <li>
-                <a>About us</a>
+                <NavLink to="/about">About us</NavLink>
               </li>
             </ul>
           </div>
@@ -68,23 +68,24 @@ const Navbar = () => {
           {user ? (
             <ul className="menu menu-horizontal px-1 text-white">
               <li>
-                <a>Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <details>
-                  <summary>Explore</summary>
-                  <ul className="p-2 bg-slate-800">
+                <NavLink to="/login">Explore</NavLink>
+                {/* <ul className="p-2 bg-slate-800">
                     <li>
                       <a>Features</a>
                     </li>
                     <li>
                       <a>Membership</a>
                     </li>
-                  </ul>
-                </details>
+                  </ul> */}
               </li>
               <li>
-                <NavLink>About us</NavLink>
+                <NavLink to="about">About us</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">Contuct us</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard">Deshboard</NavLink>
@@ -124,23 +125,16 @@ const Navbar = () => {
           ) : (
             <ul className="menu menu-horizontal px-1 text-white">
               <li>
-                <a>Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <details>
-                  <summary>Explore</summary>
-                  <ul className="p-2 bg-slate-800">
-                    <li>
-                      <a>Features</a>
-                    </li>
-                    <li>
-                      <a>Membership</a>
-                    </li>
-                  </ul>
-                </details>
+                <NavLink to="/login">Explore</NavLink>
               </li>
               <li>
-                <NavLink>About us</NavLink>
+                <NavLink to="about">About us</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">Contact us</NavLink>
               </li>
               <li>
                 <NavLink to="/login">

@@ -1,36 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
+// TodoList.js
+import React from "react";
+import Task from "../tasks/Task";
 
-const TodoList = () => {
-  const { user } = useContext(AuthContext);
-  const [tasks, setTask] = useState([]);
-  const url = `https://scc-technovision-inc-server-nu.vercel.app/my-tasks?email=${user?.email}`;
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setTask(data));
-    console.log(tasks);
-  }, []);
+const TodoList = ({ tasks }) => {
+  const { title } = tasks;
+  console.log(title);
   return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>To Do List</th>
-            </tr>
-          </thead>
-          {tasks.map((task) => (
-            <tbody key={task._id}>
-              {/* row 1 */}
-              <tr>
-                <td className="text-black">{task.title}</td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <div
+      style={{ flex: 1, border: "1px solid", padding: "16px", margin: "8px" }}
+    >
+      <h2>Todo</h2>
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </div>
   );
 };

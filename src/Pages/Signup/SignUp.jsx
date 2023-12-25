@@ -109,7 +109,7 @@ const SignUp = () => {
         <div className=" mr-16">
           {/* <img src={logo} className="h-14 ml-48 mt-16" alt="" /> */}
           <h1 className="text-white text-4xl text-center font-semibold mt-7 ">
-            Register with the BBC
+            Register with the Us
           </h1>
           <div>
             <form onSubmit={handleSignUp} className="w-full max-w-sm ">

@@ -90,7 +90,7 @@ const Login = () => {
           <div>
             {" "}
             <h1 className="text-white text-2xl font-bold">
-              Don’t have a BBC account?
+              Don’t have an account?
             </h1>
             <NavLink to="/signup">
               <h2 className="underline text-blue-600 mr-6">Registration</h2>
