@@ -113,7 +113,7 @@ const Dashboard = () => {
             </div>
           </nav>
         </aside>
-        <DndProvider backend={HTML5Backend}>
+        {/* <DndProvider backend={HTML5Backend}>
           <div style={{ display: "flex" }}>
             <TodoList tasks={tasks} />
             <OngoingList
@@ -125,7 +125,7 @@ const Dashboard = () => {
               onTaskStatusChange={handleTaskStatusChange}
             />
           </div>
-        </DndProvider>
+        </DndProvider> */}
         {/* <div className="grid grid-cols-3">
           <TodoList></TodoList>
           <OngoingList></OngoingList>

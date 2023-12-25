@@ -51,7 +51,7 @@ const Banner = () => {
             </p>
             <NavLink to="/signup">
               {" "}
-              <button className="btn btn-primary">Explore</button>{" "}
+              <button className="btn btn-primary">Let’s Explore</button>{" "}
             </NavLink>
           </div>
         </div>

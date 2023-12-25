@@ -20,6 +20,7 @@ const AddTasks = () => {
       descriptions: data.descriptions,
       date: data.date,
       email: data.email,
+      status: "todo",
     };
 
     const articleRes = await axiosPublic.post("/addtasks", taskItem);

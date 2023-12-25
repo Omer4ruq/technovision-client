@@ -16,9 +16,13 @@ const Task = ({ task }) => {
   return (
     <div
       ref={drag}
-      style={{ border: "1px solid", padding: "8px", marginBottom: "8px" }}
+      style={{ border: "1px solid", padding: "20px", marginBottom: "20px" }}
     >
-      <h1 className="text-black">{title}</h1>
+      <h1 className="text-black text-2xl">{title}</h1>
+      <div className="flex gap-3 ml-12 text-blue-500 ">
+        <h1 className="hover:underline">Delete</h1>
+        <h1 className="hover:underline">Edit</h1>
+      </div>
     </div>
   );
 };
